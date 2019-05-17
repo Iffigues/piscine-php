@@ -43,7 +43,7 @@ div {
 	border-radius: 10px;
 	background-color: #909090;
 	position: absolute;
-	top: 21%;
+	top: 22%;
 	width: 10%;
 	height: 45%;
 }
@@ -52,6 +52,36 @@ div {
 	position: absolute;
 	top: 0%;
 }
+
+#lol {
+	opacity: 0;
+	top: 58%;
+	left: 78%;
+	background-color: red;
+	position: absolute; 
+	width: 20%;
+	height: 24%;
+}
+
+#fa {
+	top:89%;
+	right: 78%;
+	position: absolute;
+	background-color: green;
+	width: 55%;
+	height: 24%;
+}
+
+#lil {
+	opacity: 0;
+	top: 58%;
+	left: 32%;
+	background-color: red;
+	position: absolute;
+	width:13%;
+	height: 24%;
+}
+
 
 
 #towel {
