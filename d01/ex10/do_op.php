@@ -8,9 +8,11 @@ function enl($a) {
 function cal($a) {
 	$r = array("/", "*", "-", "+");
 	$e = str_split($a);
+	if (count($e) != 1)
+		return (false);
 	foreach ($r as $d) 
-		foreach ($e as $t)
-			if ($t != $d)
+		if ($d == $e[0])
+			return (true);
 	return (true);
 }
 
