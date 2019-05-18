@@ -16,13 +16,15 @@ function cal($a) {
 	return (true);
 }
 
+
+
+
+
 if ($argc == 4) {
 	$a = enl($argv[1]);
 	$b = enl($argv[2]);
 	$c = enl($argv[3]);
-	if (ctype_digit($a) && ctype_digit($c) && cal($b)){
-		eval("\$a = $a $b $c; echo \$a;");
-	}
+	eval("\$a = $a $b $c; echo \$a;");
 
 } else {
 

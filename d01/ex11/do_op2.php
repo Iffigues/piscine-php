@@ -13,7 +13,6 @@ function cal($a) {
 		foreach ($r as $t)
 			if ($t == $d)
 				$i = $i + 1;
-		echo "$i\n";
 		if ($i == 0)
 			return (false);
 	}
@@ -21,14 +20,33 @@ function cal($a) {
 }
 
 function cou($c) {
-	$r = array("-","+","/","*");
+	$r = array("+","/","*", '-');
 	$a = str_split($c);
 	$i = 0;
 	foreach ($r as $d )
-		foreach ($a as $t)
+		foreach ($a as $bb => $t)
 			if ($t == $d)
-				$i = $i + 1;;
+			{
+				if ($t == "-" || $t == '+')
+				{
+					if ($bb != 0){
+						if ($i != 0) {
+							if ($bb == count($a) )
+								return (0);
+						}
+						if ($i == 0)
+							$i = $i + 1;
+					}
+				}
+				else {
+					$i = $i + 1;
+				}
+			}
 	return ($i == 1);
+}
+
+function isgood($r) {
+
 }
 
 if ($argc == 2) {
@@ -36,11 +54,11 @@ if ($argc == 2) {
 	if (cal($a) && cou($a)){
 		eval("\$a = $a; echo \$a;");
 	} else {
-		echo "RR";
+		echo "Syntax Error\n";
 	}
 
 } else {
-	echo "?";
+	echo "incorrect Parameters\n";
 }
 
 ?>
