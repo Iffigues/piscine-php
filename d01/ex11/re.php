@@ -26,19 +26,32 @@ function num($r) {
 	return ($e);
 }
 
-if ($argc == 2 && have($argv[1])) {
+if ($argc == 2) {
+	if (have($argv[1])) {
 	$e = trim($argv[1]);
 	$final =  num($e);
 	$e = trim(substr($e, strlen($final)));
 	$op = $e[0];
 	$e = trim(substr($e,1));
-	echo "$e\n";
 	$ff = num($e);
-	echo "$ff\n";
 	$e = trim(substr($e, strlen($ff)));
-	echo ctype_digit($ff);
 	if (is_numeric($final) && is_numeric($ff) && strlen($e) == 0 && strpos("/*-+",$op)) {
-		echo "hahaha;\n";		
-	}
-}
+		if ($op == "/"){
+			if ($ff == "0")
+				echo "Maybe is bad";
+			else 
+				echo intval($final) / intval($ff);
+		}
+		if ($op == "*") 
+			echo intval($final) * intval($ff);
+		if ($op == '-') 
+			echo intval($final) - intval($ff);
+		if ($op == "+") 
+			echo intval($final) + intval($ff);	
+		}
+	}else
+		echo "Syntax Error";
+}else 
+	echo "Incorrect Parameters";
+echo "\n";
 ?>
