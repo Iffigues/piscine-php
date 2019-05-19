@@ -20,14 +20,22 @@ function good($file) {
 	}
 }
 
+function get_name($e) {
+	$path_parts = pathinfo($e);
+	$e = $path_parts['filename'];
+	if (isset($path_parts['extension']))
+		$e = $e . "." . $path_parts['extension'];
+	return ($e);
+}
+
 if ($argc > 1) {
 	if (good($argv[1])) {
 	if ($content = file_get_contents($argv[1])) {
 		$result = array();
 		$dir = remove_http($argv[1]);
 		$src = parse_url($argv[1]);
-		if (!file_exists($dir))
-			mkdir($dir);
+		if (!file_exists($src['host']))
+			mkdir($src[host]);
 		preg_match_all('/<img[^>]+>/i',$content, $result);	
 		foreach ($result[0] as $img) {
 				$ar = array();
@@ -41,8 +49,8 @@ if ($argc > 1) {
 						$b = $b."/./";
 						$ar[1] = $b.$e["path"];
 					}
-					echo "$ar[1]\n";
-					echo $e["path"]."\n";
+					$name = get_name($ar[1]);
+					copy($ar[1], $src["host"]."/$name");
 				}
 			}
 		}
