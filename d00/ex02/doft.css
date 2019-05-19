@@ -30,6 +30,7 @@ div {
 }
 
 #right {
+	box-shadow: 10px 5px 5px black;
 	border-radius: 10px;
 	background-color: #909090;
 	position: absolute;
@@ -40,6 +41,7 @@ div {
 }
 
 #left {
+	box-shadow: 10px 5px 5px black;
 	border-radius: 10px;
 	background-color: #909090;
 	position: absolute;
@@ -50,7 +52,7 @@ div {
 
 #book {
 	position: absolute;
-	top: 0%;
+	top: 2%;
 }
 
 #lol {
@@ -98,7 +100,7 @@ div {
 
 #arrow {
 	position: absolute;
-	top: 0%;
+	top: 2%;
 }
 
 #main {
@@ -124,6 +126,7 @@ div {
 
 
 #top {
+	box-shadow: 10px 10px 5px black;
 	border-radius: 10px;
 	width:100%;
 	height:20%;
