@@ -12,15 +12,13 @@ function epure($a) {
 
 function getPar($argv) {
 	$a = [];
-	foreach ($argv as $key => $ar) {
-		if ($key != 0) {
+	foreach ($argv as $key => $ar)
+		if ($key > 0) {
 			$r = ft_split(epure($ar));
 			foreach ($r as $va) {
 				array_push($a, $va);
 			}
 		}
-	}
-	asort($a);
 	$a = array_values($a);
 	return ($a);
 }

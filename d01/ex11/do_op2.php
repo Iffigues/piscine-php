@@ -1,64 +1,59 @@
 <?php
 
-function enl($a) {
-	$a = preg_replace('/\s+/', '', $a);
-	return ($a);
-}
-
-function cal($a) {
-	$r = array("/", "*", "-", "+", "0","1", "2","3","4","5","6","7","8","9");
-	$e = str_split($a);
-	foreach ($e as $d) {
-		$i = 0;
-		foreach ($r as $t)
-			if ($t == $d)
-				$i = $i + 1;
-		if ($i == 0)
+function have($e) {
+	$i =  "/*-+1234567890";
+	$e = preg_replace('/\s+/', '', $e);
+	$r = str_split($e);
+	foreach ($r as $t) {
+		if (!strpos($i,$t))
 			return (false);
 	}
 	return (true);
 }
 
-function cou($c) {
-	$r = array("+","/","*", '-');
-	$a = str_split($c);
+function num($r) {
+	$e = "";
 	$i = 0;
-	foreach ($r as $d )
-		foreach ($a as $bb => $t)
-			if ($t == $d)
-			{
-				if ($t == "-" || $t == '+')
-				{
-					if ($bb != 0){
-						if ($i != 0) {
-							if ($bb == count($a) )
-								return (0);
-						}
-						if ($i == 0)
-							$i = $i + 1;
-					}
-				}
-				else {
-					$i = $i + 1;
-				}
-			}
-	return ($i == 1);
-}
-
-function isgood($r) {
-
+	if ($i < strlen($r))
+		if ($r[$i] == '-' || $r[$i] == '+'){
+			$i++;
+			$e = $e . $r[0];
+		}
+	while ($i < strlen($r) && ctype_digit($r[$i])) {
+		$e = $e . $r[$i];
+		$i++;
+	}
+	return ($e);
 }
 
 if ($argc == 2) {
-	$a = enl($argv[1]);
-	if (cal($a) && cou($a)){
-		eval("\$a = $a; echo \$a;");
-	} else {
-		echo "Syntax Error\n";
+	if (have($argv[1])) {
+	$e = trim($argv[1]);
+	$final =  num($e);
+	$e = trim(substr($e, strlen($final)));
+	$op = $e[0];
+	$e = trim(substr($e,1));
+	$ff = num($e);
+	$e = trim(substr($e, strlen($ff)));
+	if (is_numeric($final) && is_numeric($ff) && strlen($e) == 0 && strpos("/*-+",$op)) {
+		if ($op == "/"){
+			if (intval($ff) == "0")
+				echo "Maybe is bad";
+			else 
+				echo intval($final) / intval($ff);
+		}
+		if ($op == "*") 
+			echo intval($final) * intval($ff);
+		if ($op == '-') 
+			echo intval($final) - intval($ff);
+		if ($op == "+") 
+			echo intval($final) + intval($ff);	
+		} else {
+		 echo "Syntax Error";
 	}
-
-} else {
-	echo "incorrect Parameters\n";
-}
-
+	}else
+		echo "Syntax Error";
+}else 
+	echo "Incorrect Parameters";
+echo "\n";
 ?>

@@ -6,7 +6,7 @@ if ($f = fopen("/var/run/utmpx", "r")) {
 	date_default_timezone_set('Europe/paris');
 	while ($read = fread($f, 628)) {
 		$ph = unpack($struct, $read);
-		if ($ph['type'] == 7 && strcmp(trim($ph['user']), get_current_user()) == 0)
+		if ($ph['type'] == 7)
 			$a[$ph["line"]] = $ph["user"]." ".$ph["line"]."  ".date("M j H:i", $ph["time1"])."\n";
 	}
 	if (ksort($a)) 

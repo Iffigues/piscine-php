@@ -7,7 +7,11 @@ function oddeven($a) {
 function aff() {
 	echo "Entrer un nombre: ";
 	$handle = fopen ("php://stdin","r");
-	return (trim(fgets($handle)));
+	$a = fgets($handle);
+	if (empty($a))
+		exit(0);
+	fclose($handle);
+	return (trim($a));
 }
 
 function readder() {
@@ -15,6 +19,8 @@ function readder() {
 		$handle = aff();
 		if (ctype_digit($handle)) {
 			echo "Le chiffre $handle est ";
+			if ($handle == 0)
+				exit(0);
 			if (oddeven(intval($handle))) {
 				echo "impair\n";
 			}
@@ -25,7 +31,5 @@ function readder() {
 		 echo "'$handle' n'est pas un chiffre\n";
 	}
 }
-
-
 readder();
 ?>
