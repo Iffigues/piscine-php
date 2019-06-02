@@ -1,0 +1,58 @@
+<html>
+	<head>
+		<style>
+			#ballon {
+				position: absolute;
+				bottom: 0px;
+				left: 50%;
+			}	
+		</style>
+	</head>
+	<body>
+		<div id="ballon" style="background-color:red; border-radius: 50%;height:200px;width:200px"></div>
+	</body>
+	<script type="text/javascript" id="ici">
+		(function () {
+			function explose() {
+				if (parseInt(baloon.style.width) >= 420) {
+					baloon.style.width = "200px";
+					baloon.style.height = "200px";
+			}
+			}
+		var baloon = document.getElementById("ballon");
+		function setColor(e) {
+			var c = baloon.style.backgroundColor;
+			if (e) {
+				if (c == 'red')
+					baloon.style.backgroundColor = 'green';
+				if (c == 'green')
+					baloon.style.backgroundColor = 'blue';
+				if (c == 'blue')
+					baloon.style.backgroundColor = 'red';
+			} else {
+				if (c == 'red') 
+					baloon.style.backgroundColor = "blue";
+				if (c == "blue")
+					baloon.style.backgroundColor = "green";
+				if (c == "green")
+					baloon.style.backgroundColor = "red";
+				
+			}
+		}
+		baloon.addEventListener("click", function(){
+			baloon.style.width = parseInt(baloon.style.width) + 10 + "px";
+			baloon.style.height = parseInt(baloon.style.height) + 10 + "px";
+			setColor(1);
+			explose();
+		});
+		baloon.addEventListener("mouseleave", function(){
+			if (parseInt(baloon.style.width) > 200 &&  parseInt(baloon.style.height) > 200) {
+				baloon.style.width = parseInt(baloon.style.width) - 5 + "px"
+				baloon.style.height = parseInt(baloon.style.height) - 5 + "px";
+				setColor(0);
+			}
+		});
+		document.getElementById("ici").remove();
+		}());
+	</script>
+</html>

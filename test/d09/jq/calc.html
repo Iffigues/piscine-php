@@ -1,0 +1,63 @@
+<html>
+<head>
+<script
+src="https://code.jquery.com/jquery-3.4.1.min.js"
+integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+crossorigin="anonymous"></script>
+</head>
+<body>
+<input type="text" placeholder="number" id="un"/>
+<select id="deux">
+<option value="*">*</option>
+<option value="%">%</option>
+<option value="+">+</option>
+<option value="-">-</option>
+</select>
+<input type="text" placeholder="number" id="trois"/>
+<input type="submit" id="lol" type="Try me !"/>
+</body>
+<script type="text/javascript" id="lil">
+$(function(){
+		(function( $ ){
+		 	$.fn.getInt = function() {
+		 		var r = $(this).val();
+		 		if (!Number.isInteger(Number(r)))
+					return false;
+		 		var t = parseInt(r);
+				if (t < 0)
+					return false;
+				return t;
+		 	}; 
+		 })( jQuery );
+		 var ca = function(num) {
+		 	if (isFinite(num)) {
+				alert(num);
+				console.log(num);
+			}
+		 }
+		$("#lol").click(function(){
+			var l = $("#un").getInt();
+			var m = $("#deux").val();
+			var d = $("#trois").getInt();
+			if (l !== false && d !== false) {
+				if (m == '%') {
+					if (d != 0) {
+						ca(l / d)			
+					} else {
+						alert("It's Over 9000");
+					}
+				}
+				if (m == '*')
+					ca(l * d);
+				if (m == '-')
+					ca(l - d);
+				if (m == '+')
+					ca(l + d);
+			} else {
+				alert("Error :(");
+			}
+		});
+		$("#lil").remove();
+		});
+</script>
+</html>

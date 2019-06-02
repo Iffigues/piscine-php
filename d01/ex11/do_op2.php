@@ -1,16 +1,15 @@
+#!/usr/bin/php
 <?php
-
 function have($e) {
 	$i =  "/*-+1234567890";
 	$e = preg_replace('/\s+/', '', $e);
 	$r = str_split($e);
-	foreach ($r as $t) {
-		if (!strpos($i,$t))
+	foreach ($r as $t)
+		if (strpos($i,$t) ===  false){
 			return (false);
 	}
 	return (true);
-}
-
+};
 function num($r) {
 	$e = "";
 	$i = 0;
@@ -24,9 +23,8 @@ function num($r) {
 		$i++;
 	}
 	return ($e);
-}
-
-if ($argc == 2) {
+};
+if ($argc == 2 && $argv[1] != "") {
 	if (have($argv[1])) {
 	$e = trim($argv[1]);
 	$final =  num($e);
@@ -35,7 +33,7 @@ if ($argc == 2) {
 	$e = trim(substr($e,1));
 	$ff = num($e);
 	$e = trim(substr($e, strlen($ff)));
-	if (is_numeric($final) && is_numeric($ff) && strlen($e) == 0 && strpos("/*-+",$op)) {
+	if (is_numeric($final) && is_numeric($ff) && strlen($e) == 0 && strpos("/*-+",$op) !== false) {	
 		if ($op == "/"){
 			if (intval($ff) == "0")
 				echo "Maybe is bad";

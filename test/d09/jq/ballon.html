@@ -1,0 +1,61 @@
+<html>
+	<head>
+	<script
+	  src="https://code.jquery.com/jquery-3.4.1.min.js"
+	    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+	      crossorigin="anonymous"></script>
+		<style>
+			#ballon {
+				position: absolute;
+				bottom: 0px;
+				left: 50%;
+			}	
+		</style>
+	</head>
+	<body>
+		<div id="ballon" style="background-color:red; border-radius: 50%;height:200px;width:200px"></div>
+	</body>
+	<script type="text/javascript" id="ici">
+		$(function(){
+			function change(e) {
+				var red = "rgb(255, 0, 0)";
+				var green = "rgb(0, 128, 0)";
+				var blue = "rgb(0, 0, 255)";
+				var p = $("#ballon");
+				var cool = p.css("backgroundColor");
+				if (e) {
+					if (cool == red)
+						p.css("backgroundColor", green);
+					if (cool == green)
+						p.css("backgroundColor", blue);
+					if (cool == blue)
+						p.css("backgroundColor", red);
+				} else {
+					if (cool == red)
+						p.css("backgroundColor", blue);
+					if (cool == blue)
+						p.css("backgroundColor", green);
+					if (cool == green)
+						p.css("backgroundColor", red);
+				}
+			}
+			$("#ballon").click(function() {
+				$(this).width($(this).width() + 10);
+				$(this).height($(this).height() + 10);
+				change(1);
+				if ($(this).width() > 420 || $(this).height() > 420) {
+					$(this).width(200);
+					$(this).height(200);
+				}
+			});
+			$("#ballon").mouseleave(function(){
+				if ($(this).width() > 200 && $(this).height() > 200) {
+					$(this).width($(this).width() - 5);
+					$(this).height($(this).height() - 5);
+					change(0);
+				}
+			});
+			$("#ici").remove();
+		})
+	</script>
+</html>

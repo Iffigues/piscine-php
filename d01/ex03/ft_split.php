@@ -1,3 +1,4 @@
+#!/usr/bin/php
 <?php
 function ft_split($a) {
 	$k = array_filter(explode(" ", $a));

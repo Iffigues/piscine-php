@@ -1,9 +1,5 @@
+#!/usr/bin/php
 <?php
-
-function oddeven($a) {
-	return  ($a & 1);
-}
-
 function aff() {
 	echo "Entrer un nombre: ";
 	$handle = fopen ("php://stdin","r");
@@ -12,24 +8,22 @@ function aff() {
 		exit(0);
 	fclose($handle);
 	return (trim($a));
-}
-
+};
 function readder() {
 	while (1) {
 		$handle = aff();
-		if (ctype_digit($handle)) {
+		if (is_numeric($handle)) {
 			echo "Le chiffre $handle est ";
 			if ($handle == 0)
 				exit(0);
-			if (oddeven(intval($handle))) {
+			if (intval($handle) & 1)
 				echo "impair\n";
-			}
 			else
 				echo "pair\n";
 		}
 		else
 		 echo "'$handle' n'est pas un chiffre\n";
 	}
-}
+};
 readder();
 ?>

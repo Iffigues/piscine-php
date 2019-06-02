@@ -1,0 +1,58 @@
+<html>
+<head>
+</head>
+<body>
+<input type="text" placeholder="number" id="un"/>
+<select id="deux">
+<option value="*">*</option>
+<option value="%">%</option>
+<option value="+">+</option>
+<option value="-">-</option>
+</select>
+<input type="text" placeholder="number" id="trois"/>
+<input type="submit" id="lol" type="Try me !"/>
+</body>
+<script type="text/javascript" id="lil">
+	(function () {
+	var ballon=document.getElementById("lol");
+	ballon.addEventListener("click", function(){
+		calc();
+	});
+	function ca(num) {
+		if (isFinite(num)) {
+			alert(num);
+			console.log(num);
+		}
+	};
+	function haha(e) {
+		var r = Number.isInteger(Number(e));
+		if (!r || (parseInt(e) < 0))
+			return 0;
+		return 1;
+	}
+	function calc() {
+		var x = document.getElementById('un').value;
+		var y = document.getElementById('deux').value;
+		var z = document.getElementById('trois').value;
+		if (haha(x) && haha(z)) {
+			if (y == '%') {
+				if (parseInt(z) != 0)
+					ca(parseInt(x) / parseInt(z));
+				else
+				alert("It's Over 9000");
+			}
+			if (y == '+')
+				ca(parseInt(x) + parseInt(z));
+			if (y == '-')
+				ca(parseInt(x) - parseInt(z));
+			if (y == '*')
+				ca(parseInt(x) * parseInt(z));
+
+		} else {
+			alert("Error :(");
+		}
+	};
+	document.getElementById('lil').remove();
+	}());
+</script>
+</html>

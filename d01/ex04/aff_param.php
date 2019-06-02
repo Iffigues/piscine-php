@@ -1,3 +1,4 @@
+#!/usr/bin/php
 <?php
 foreach ($argv as $key => $ar) {
 	if ($key != 0)

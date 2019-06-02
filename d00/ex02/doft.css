@@ -8,6 +8,24 @@ body {
 	background-color: #4d4d4d;
 }
 
+#left img{
+	position: absolute;
+	width: 60%;
+	left: 20%;
+}
+
+#right img {
+	position: absolute;
+	    width: 60%;
+		    left: 20%;
+}
+
+p {
+	font-size: 1vw;
+	margin: 0px;
+	padding: 0px;
+}
+
 #day {
 	position: relative;
 	top:5%;
@@ -22,11 +40,19 @@ div {
 }
 
 #middle {
+	background-color: #909090;
+	border-radius: 10px;
 	position: absolute;
 	top: 25%;
 	left: 15%;
-	width: 70%;
+	width: 69%;
 	height: 70%
+}
+
+#cluster {
+	border: 10px solid #909090;
+	border-radius: 10px;
+	box-shadow: 10px 5px 5px black;
 }
 
 #right {
@@ -35,9 +61,9 @@ div {
 	background-color: #909090;
 	position: absolute;
 	top: 22%;
-	right: 10px;
-	width: 10%;
-	height: 45%;
+	right: 0px;
+	width: 12%;
+	height: 60%;
 }
 
 #left {
@@ -46,8 +72,11 @@ div {
 	background-color: #909090;
 	position: absolute;
 	top: 22%;
-	width: 10%;
-	height: 45%;
+	width: 12%;
+	height: 60%;
+}
+input {
+	height: 40%;
 }
 
 #book {
@@ -69,9 +98,11 @@ div {
 	top:89%;
 	right: 78%;
 	position: absolute;
-	background-color: green;
-	width: 55%;
+	background-color: #3AF24B;
+	width: 60%;
 	height: 24%;
+	 box-shadow: 10px 5px 5px black;
+	 border-radius: 10px;
 }
 
 #lil {
@@ -95,12 +126,20 @@ div {
 	position: absolute;
 	top: 40%;
 	left:10%;
+	width: 74%;
+	height: 20%;
 }
 
+#brick1 {
+	    position: absolute!important;
+		    top: 40%;
+			left: 10%;
+	}
 
 #arrow {
 	position: absolute;
 	top: 2%;
+
 }
 
 #main {
@@ -109,6 +148,9 @@ div {
 }
 
 #oeil {
+	margin: 0px;
+	padding: 0px;
+	border: 4px solid red;
 	position: absolute;
 	top: 40%;
 }
@@ -122,8 +164,6 @@ div {
 	    position: absolute;
 	     top: 80%;
 	   }
-
-
 
 #top {
 	box-shadow: 10px 10px 5px black;

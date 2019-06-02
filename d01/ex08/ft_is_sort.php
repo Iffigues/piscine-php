@@ -1,13 +1,14 @@
+#!/usr/bin/php
 <?php
-
 function call($tab,  callable $fu) {
 	$t = $tab;
 	if ($fu($t) == false)
 		return false;
 	return ($t === $tab);
 }
-
 function ar($tab) {
+	if (count($tab) <= 1)
+		return (false);
 	if (call($tab, 'arsort') == true)
 		return (true);
 	if (call($tab, 'asort') == true)
